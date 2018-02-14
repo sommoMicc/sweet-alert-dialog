@@ -8,12 +8,13 @@
     android:layout_gravity="center"
     android:orientation="vertical"
     android:background="@drawable/dialog_background"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:paddingBottom="@dimen/alert_outer_padding">
 
     <ImageView
         android:id="@+id/custom_image"
-        android:layout_width="53dp"
-        android:layout_height="53dp"
+        android:layout_width="@dimen/alert_image_size"
+        android:layout_height="@dimen/alert_image_size"
         android:layout_marginTop="5dp"
         android:contentDescription="@string/app_name"
         android:visibility="gone"
@@ -21,9 +22,9 @@
 
     <FrameLayout
         android:id="@+id/error_frame"
-        android:layout_width="53dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="@dimen/alert_image_size"
+        android:layout_height="@dimen/alert_image_size"
+        android:layout_marginTop="10dp"
         android:visibility="gone">
         <View
             android:layout_width="match_parent"
@@ -42,31 +43,17 @@
 
     <FrameLayout
         android:id="@+id/success_frame"
-        android:layout_width="53dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="@dimen/alert_image_size"
+        android:layout_height="@dimen/alert_image_size"
+        android:layout_marginTop="10dp"
         android:visibility="gone">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/success_circle"
             android:background="@drawable/success_bow" />
 
-        <View
-            android:id="@+id/mask_right"
-            android:layout_width="35dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="-13dp"
-            android:layout_gravity="right"
-            android:background="@android:color/white" />
-
-        <View
-            android:id="@+id/mask_left"
-            android:layout_width="21dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="-3dp"
-            android:layout_gravity="left"
-            android:background="@android:color/white" />
 
         <View
             android:layout_width="match_parent"
@@ -82,9 +69,9 @@
 
     <FrameLayout
         android:id="@+id/warning_frame"
-        android:layout_width="53dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="@dimen/alert_image_size"
+        android:layout_height="@dimen/alert_image_size"
+        android:layout_marginTop="10dp"
         android:visibility="gone">
 
         <View
@@ -111,8 +98,8 @@
 
         <com.pnikosis.materialishprogress.ProgressWheel
             android:id="@+id/progressWheel"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="@dimen/alert_image_size"
+            android:layout_height="@dimen/alert_image_size"
             wheel:progressIndeterminate="true"
             android:layout_gravity="center" />
     </FrameLayout>
@@ -121,7 +108,7 @@
         android:id="@+id/title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="19sp"
+        android:textSize="@dimen/title_font_size"
         android:textColor="#575757"
         android:layout_marginTop="10dp"
         android:singleLine="true"
@@ -132,14 +119,14 @@
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:textSize="@dimen/default_font_size"
         android:textAlignment="center"
         android:gravity="center"
         android:textColor="#797979"
         android:visibility="gone" />
 
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">

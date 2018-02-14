@@ -28,8 +28,8 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
     private Animation mOverlayOutAnim;
     private Animation mErrorInAnim;
     private AnimationSet mErrorXInAnim;
-    private AnimationSet mSuccessLayoutAnimSet;
     private Animation mSuccessBowAnim;
+    private Animation mSuccessCircleAnimation;
     private TextView mTitleTextView;
     private TextView mContentTextView;
     private String mTitleText;
@@ -42,10 +42,9 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
     private FrameLayout mErrorFrame;
     private FrameLayout mSuccessFrame;
     private FrameLayout mProgressFrame;
+    private View mSuccessCircle;
     private SuccessTickView mSuccessTick;
     private ImageView mErrorX;
-    private View mSuccessLeftMask;
-    private View mSuccessRightMask;
     private Drawable mCustomImgDrawable;
     private ImageView mCustomImage;
     private Button mConfirmButton;
@@ -94,7 +93,7 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
             }
         }
         mSuccessBowAnim = OptAnimationLoader.loadAnimation(getContext(), R.anim.success_bow_roate);
-        mSuccessLayoutAnimSet = (AnimationSet)OptAnimationLoader.loadAnimation(getContext(), R.anim.success_mask_layout);
+        mSuccessCircleAnimation = OptAnimationLoader.loadAnimation(getContext(), R.anim.success_circle_fadein);
         mModalInAnim = (AnimationSet) OptAnimationLoader.loadAnimation(getContext(), R.anim.modal_in);
         mModalOutAnim = (AnimationSet) OptAnimationLoader.loadAnimation(getContext(), R.anim.modal_out);
         mModalOutAnim.setAnimationListener(new Animation.AnimationListener() {
@@ -147,8 +146,7 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
         mSuccessFrame = (FrameLayout)findViewById(R.id.success_frame);
         mProgressFrame = (FrameLayout)findViewById(R.id.progress_dialog);
         mSuccessTick = (SuccessTickView)mSuccessFrame.findViewById(R.id.success_tick);
-        mSuccessLeftMask = mSuccessFrame.findViewById(R.id.mask_left);
-        mSuccessRightMask = mSuccessFrame.findViewById(R.id.mask_right);
+        mSuccessCircle = mSuccessFrame.findViewById(R.id.success_circle);
         mCustomImage = (ImageView)findViewById(R.id.custom_image);
         mWarningFrame = (FrameLayout)findViewById(R.id.warning_frame);
         mConfirmButton = (Button)findViewById(R.id.confirm_button);
@@ -177,8 +175,7 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
         mErrorFrame.clearAnimation();
         mErrorX.clearAnimation();
         mSuccessTick.clearAnimation();
-        mSuccessLeftMask.clearAnimation();
-        mSuccessRightMask.clearAnimation();
+        mSuccessCircle.clearAnimation();
     }
 
     private void playAnimation () {
@@ -187,7 +184,7 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
             mErrorX.startAnimation(mErrorXInAnim);
         } else if (mAlertType == SUCCESS_TYPE) {
             mSuccessTick.startTickAnim();
-            mSuccessRightMask.startAnimation(mSuccessBowAnim);
+            mSuccessCircle.startAnimation(mSuccessCircleAnimation);
         }
     }
 
@@ -206,8 +203,6 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
                 case SUCCESS_TYPE:
                     mSuccessFrame.setVisibility(View.VISIBLE);
                     // initial rotate layout of success mask
-                    mSuccessLeftMask.startAnimation(mSuccessLayoutAnimSet.getAnimations().get(0));
-                    mSuccessRightMask.startAnimation(mSuccessLayoutAnimSet.getAnimations().get(1));
                     break;
                 case WARNING_TYPE:
                     mConfirmButton.setBackgroundResource(R.drawable.red_button_background);
