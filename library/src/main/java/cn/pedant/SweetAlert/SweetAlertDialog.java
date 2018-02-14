@@ -235,6 +235,9 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
         return mTitleText;
     }
 
+    public SweetAlertDialog setTitleRes (int resId) {
+        return setTitleText(getContext().getResources().getString(resId));
+    }
     public SweetAlertDialog setTitleText (String text) {
         mTitleText = text;
         if (mTitleTextView != null && mTitleText != null) {
@@ -252,12 +255,25 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
         return this;
     }
 
+    /**
+     * Show method in builder-style
+     * @return current SweetAlertDialog to be shown
+     */
+    public SweetAlertDialog showDialog() {
+        show();
+        return this;
+    }
+
     public SweetAlertDialog setCustomImage (int resourceId) {
         return setCustomImage(getContext().getResources().getDrawable(resourceId));
     }
 
     public String getContentText () {
         return mContentText;
+    }
+
+    public SweetAlertDialog setContentRes(int resId) {
+        return setContentText(getContext().getResources().getString(resId));
     }
 
     public SweetAlertDialog setContentText (String text) {
@@ -297,6 +313,10 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
         return mCancelText;
     }
 
+    public SweetAlertDialog setCancelTextRes(int resId) {
+        return setCancelText(getContext().getResources().getString(resId));
+    }
+
     public SweetAlertDialog setCancelText (String text) {
         mCancelText = text;
         if (mCancelButton != null && mCancelText != null) {
@@ -310,6 +330,9 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
         return mConfirmText;
     }
 
+    public SweetAlertDialog setConfirmRes(int resId) {
+        return setConfirmText(getContext().getResources().getString(resId));
+    }
     public SweetAlertDialog setConfirmText (String text) {
         mConfirmText = text;
         if (mConfirmButton != null && mConfirmText != null) {
