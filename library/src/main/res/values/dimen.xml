@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="alert_width">310dp</dimen>
-    <dimen name="alert_outer_padding">16dp</dimen>
+    <dimen name="alert_side_padding">64dp</dimen>
+    <dimen name="alert_top_bottom_padding">10dp</dimen>
 
     <dimen name="common_circle_width">3dp</dimen>
     <dimen name="progress_circle_radius">64dp</dimen>
 
-    <dimen name="button_height">33sp</dimen>
+    <dimen name="button_height">36sp</dimen>
     <dimen name="default_font_size">20sp</dimen>
     <dimen name="title_font_size">25sp</dimen>
 

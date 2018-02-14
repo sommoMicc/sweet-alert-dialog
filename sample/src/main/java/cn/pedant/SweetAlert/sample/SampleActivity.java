@@ -124,7 +124,7 @@ public class SampleActivity extends Activity implements View.OnClickListener {
                         .setTitleText("Loading");
                 pDialog.show();
                 pDialog.setCancelable(false);
-                new CountDownTimer(800 * 7, 800) {
+                new CountDownTimer(100 * 7, 800) {
                     public void onTick(long millisUntilFinished) {
                         // you can change the progress bar color by ProgressHelper every 800 millis
                         i++;
