@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="alert_side_padding">64dp</dimen>
+    <dimen name="alert_side_padding">44dp</dimen>
     <dimen name="alert_top_bottom_padding">10dp</dimen>
 
     <dimen name="common_circle_width">3dp</dimen>

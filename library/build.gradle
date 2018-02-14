@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven'
+apply plugin: 'com.github.dcendents.android-maven'
 
 version = VERSION_NAME
 group = GROUP
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion 25
+    buildToolsVersion '27.0.2'
 
     defaultConfig {
         minSdkVersion 11
